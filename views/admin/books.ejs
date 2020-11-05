@@ -1,0 +1,46 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body style="background:url('/images/fine-decor-wallpapers-quartz-cream-trees-wallpaper-2035927285803_1024x.webp')">
+        <h1 style="text-align: center; font-family: monospace;">LOVE FOR BOOKS ❤</h1>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (prods.length > 0) { %>
+                    <div class="grid">
+                        <% for (let product of prods) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= product.title %>
+                                    </h1>
+                                </header>
+                                <div class="card__image">
+                                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                                </div>
+                                <div class="card__content">
+                                    <h3 class="product__price">
+                                        Gener - <%= product.gener %>
+                                    </h3>
+                                    <p class="product__description">
+                                        <%= product.description %>
+                                    </p>
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/admin/edit-book/<%= product._id %>?edit=true" class="btn">Edit</a>
+                                    <form action="/admin/delete-book" method="POST">
+                                        <input type="hidden" value="<%= product._id %>" name="productId">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <button class="btn" type="submit">Delete</button>
+                                    </form>
+
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products Found!</h1>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

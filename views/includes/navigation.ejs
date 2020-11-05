@@ -1,0 +1,66 @@
+<!-- <div class="backdrop"></div>
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">All Books</a>
+            </li>
+            <% if (isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/add-book' ? 'active' : '' %>" href="/admin/add-book">Add Book
+                    </a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/books' ? 'active' : '' %>" href="/admin/books">Admin Books
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+        <ul class="main-header__item-list">
+            <% if (!isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a>
+                </li>
+            <% } else { %>
+                <li class="main-header__item">
+                    <form action="/logout" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</header> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+<div class="navbar navbar-expand-sm justify-content-center navbar-dark bg-dark navbar-dark color-light">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a style="font-family: monospace; font-size: 25px; color: white;" class="nav-link" href="/home" >Home</a>
+        </li>        
+        <li class="nav-item">
+            <a style="font-family: monospace; font-size: 25px; color: white;" class="nav-link" href="/facts">Facts</a>
+        </li>
+        <li class="nav-item">
+            <a style="font-family: monospace; font-size: 25px; color: white;" class="nav-link" href="/admin/add-book">Add Books</a>
+        </li>
+        <li class="nav-item">
+            <a style="font-family: monospace; font-size: 25px; color: white;" class="nav-link" href="/admin/books">Admin</a>
+        </li>
+        <li class="nav-item">
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button style="font-family: monospace; font-size: 25px; color: white; margin-top: 7px; background: none; border: none;" type="submit">Logout</button>
+            </form>
+        </li>
+    </ul>
+    </div>

@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body style="background:url('/images/fine-decor-wallpapers-quartz-cream-trees-wallpaper-2035927285803_1024x.webp')">
+    
+    <h1 style="text-align: center; font-family: monospace;">LOVE FOR BOOKS ❤</h1>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+    
+        <% if (books.length > 0) { %>
+            <div class="grid">
+                <% for (let b of books) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= b.title %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= b.imageUrl %>"
+                                alt="<%= b.title %>">
+                        </div>
+                        <div class="card__content">
+                            <p style="font-weight: bold;" class="product__description">By - <%= b.author %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/book-details/<%= b._id %>" class="btn">Details</a>
+                            <% if (isAuthenticated) { %>
+                                <a href="/book/<%= b._id %>" target="_blank" class="btn">Open Book</a>
+                                
+                            <% } %>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Books Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

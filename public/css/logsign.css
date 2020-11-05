@@ -1,0 +1,40 @@
+.bg{
+    background: url('../images/book.jpeg') no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: 104%
+}
+
+.form-container{
+    position: absolute;
+    top: 25vh;
+    background-color: floralwhite;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px black;
+}
+.title{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace;
+    border-radius: 10px;
+}
+
+.user-message {
+    margin: auto;
+    width: 90%;
+    border: 1px solid #4771fa;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: #b9c9ff;
+    text-align: center;
+  }
+  
+  .user-message--error {
+    border-color: red;
+    background: rgb(255, 176, 176);
+    color: red;
+  }

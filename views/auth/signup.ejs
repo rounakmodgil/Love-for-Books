@@ -1,0 +1,47 @@
+
+
+
+
+<!Doctype html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/logsign.css"/>
+    </head>
+    <body>
+        <div class="container-fluid bg">
+            <div class="title"><p>LOVE FOR BOOKS ❤</p></div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <% if (errorMessage) { %>
+                        <div class="user-message user-message--error"><%= errorMessage %></div>
+                    <% } %>
+                    <form name="form" style="background-color: black; color: white" class="form-container"  action="/signup" method="POST">
+                        <div class="username">
+                          <label for="uname">Name</label>
+                          <input type="text" class="form-control" name="uname" required placeholder="Enter name">
+                        </div><br>
+                        <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="email" class="form-control" name="email" required aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="uname">Contact number</label>
+                          <input type="tel" class="form-control" name="number" required placeholder="Enter contact number" size="10;">
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" name="password" minlength="6" required placeholder="Password">
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                      </form>
+                </div>
+             </div>
+        </div>
+    </body>

@@ -1,0 +1,21 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body style="background:url('/images/fine-decor-wallpapers-quartz-cream-trees-wallpaper-2035927285803_1024x.webp')">
+        <h1 style="text-align: center;">LOVE FOR BOOKS ❤</h1>
+        <%- include('../includes/navigation.ejs') %>
+        <main class="centered">
+            <h1><%= book.title %></h1>
+            <hr>
+            <div class="image">
+                <img src="<%= book.imageUrl %>" alt="<%= book.title %>">
+            </div>
+            <h2>Author - <%= book.author %></h2>
+            <h2>Gener - <%= book.gener %></h2>
+            <p><%= book.description %></p>
+            <% if (isAuthenticated) { %>
+                <a href="/book/<%= book._id %>" target="_blank" class="btn">Open Book</a>
+                                
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>
